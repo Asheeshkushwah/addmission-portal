@@ -32,7 +32,7 @@
 
                 <!-- Column-2 -->
                 <div class="col-lg-6 bglogin p-4">
-                    <form>
+                    <form action="/userInsert" method="post">
                         <!-- logo -->
                         <center>
                             <img class="mb-4 rounded-circle" src="./Images/SignUpImage.jpeg" alt="Sign Up Image" width="20%" height="20%">
@@ -45,7 +45,7 @@
                         <div class="row mb-4">
                             <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">User Name</div>
                             <div class="col-lg-10">
-                                <input class="form-control text-capitalize" type="text" placeholder="Enter your name" required>
+                                <input name="n" class="form-control text-capitalize" type="text" placeholder="Enter your name" required>
                             </div>
                         </div>
 
@@ -53,7 +53,7 @@
                         <div class="row mb-3">
                             <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">Email</div>
                             <div class="col-lg-10">
-                                <input class="form-control" type="email" placeholder="name@example.com" required>
+                                <input name="e" class="form-control" type="email" placeholder="name@example.com" required>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                         <div class="row mb-4">
                             <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">Password</div>
                             <div class="col-lg-10">
-                                <input class="form-control" type="password" required>
+                                <input name="p" class="form-control" type="password" required>
                             </div>
                         </div>
 
@@ -69,21 +69,14 @@
                         <div class="row mb-4">
                             <div class="col-lg-3 text-center bg-secondary rounded text-light fw-light my-auto p-2">Confirm Password</div>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" required>
+                                <input name="cp" class="form-control" type="password" required>
                             </div>
                         </div>
 
-                        <!-- Choose File -->
-                        <div class="row mb-5">
-                            <div class="col-lg-9 my-auto text-uppercase fw-light text-end">No file chosen</div>
-                            <div class="col-lg-3 my-auto text-uppercase fw-light text-end">
-                                <button class="btn btn-secondary fw-light">Choose File</button>
-                            </div>
-                        </div>
-
+                       
                         <!-- Button (Login) -->
                         <center>
-                            <button class="btn btn-primary mb-5 btn-lg">Register</button>
+                            <button type="submit" class="btn btn-primary mb-5 btn-lg">Register</button>
                         </center>
                         
                     </form>
@@ -99,44 +92,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
 </body>
 
 </html>

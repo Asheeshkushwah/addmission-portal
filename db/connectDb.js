@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Local__Url ='mongodb://127.0.0.1:27017/ADDMISSION PORTEL'
+const Local__Url ='mongodb://127.0.0.1:27017/ADDMISSIONPORTEL'
 
 const connectDb =()=>{
     return mongoose.connect(Local__Url)
@@ -10,4 +10,6 @@ const connectDb =()=>{
 
     })
 }
+
+
 module.exports =connectDb
