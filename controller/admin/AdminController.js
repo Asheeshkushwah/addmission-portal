@@ -28,6 +28,32 @@ class AdminController {
     }
 }
 
+static viewsUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+        // console.log(id)
+        const data = await UserModel.findById(id)
+        console.log(data)
+        res.render('admin/viewsUser',{d:data});
+    } catch (error) {
+        console.log(error)
+    }
+}
+static EditUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+        // console.log(id)
+        const data = await UserModel.findById(id)
+        console.log(data)
+        res.render('admin/EditUser',{d:data});
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
 
 }
 module.exports = AdminController
