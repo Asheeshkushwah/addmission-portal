@@ -1,4 +1,4 @@
-
+const UserModel = require("../moduls/user")
 class FrontController {
     static home = async (req, res) => {
         try {
