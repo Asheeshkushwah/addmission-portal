@@ -24,7 +24,7 @@
       <!-- Main content -->
       <div class="content">
           <div class="container">
-            <form action="">
+            <form action="/admin/updateuser/<%=d._id %>" method="post">
                 <div class="form-group">
                   <label for="">Name:</label>
                   <input type="text" name="n" class="form-control" value="<%=d.name %>">
@@ -35,10 +35,10 @@
                 </div>
                 <div class="form-group">
                   <label for="">Password:</label>
-                  <input type="password" name="password" class="form-control"value="<%= d.password %>">
+                  <input type="password" name="p" class="form-control"value="<%= d.password %>">
                 </div>
              
-                <button class="btn btn-primary">submit</button>
+                <button class="btn btn-primary">update</button>
                </form>            
             </div>
             <!-- /.card -->

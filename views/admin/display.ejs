@@ -51,9 +51,9 @@
                       <td><%= item.email %></td>
                       <td><%= item.password %></td>
                       <td>
-                        <a href="/admin/views/User/<%= item._id %>" class="btn btn-info">View</a>
-                        <a href="/admin/edit/User/<%= item._id %>" class="btn btn-success">Edit</a>
-                        <a href="/admin/delete/User/<%= item._id %>" class="btn btn-danger">Delete</a>
+                        <a href="/admin/viewsUser/<%= item._id %>" class="btn btn-info">View</a>
+                        <a href="/admin/editUser/<%= item._id %>" class="btn btn-success">Edit</a>
+                        <a href="/admin/deleteUser/<%= item._id %>" class="btn btn-danger">Delete</a>
                       </td>
                     </tr>
                <%}) %>
@@ -92,21 +92,18 @@
              <form action="">
               <div class="form-group">
                 <label for="">Name:</label>
-                <input type="text" name="" class="form-control">
+                <input type="text" name="n" class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Email:</label>
-                <input type="email" name="" class="form-control">
+                <input type="email" name="e" class="form-control">
               </div>
               <div class="form-group">
                 <label for="">Password:</label>
-                <input type="password" name="" class="form-control">
+                <input type="password" name="p" class="form-control">
               </div>
-              <div class="form-group">
-                <label for="">Phone:</label>
-                <input type="number" name="" class="form-control">
-              </div>
-              <button class="btn btn-primary">submit</button>
+             
+              <button class="btn btn-primary " type="submit">submit</button>
              </form>
          </div>
    

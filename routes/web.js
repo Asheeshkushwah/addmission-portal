@@ -18,10 +18,15 @@ route.post('/userInsert',FrontController.userInsert)
 
 //admincontroller
 route.get('/admin/dashboard',AdminController.dashboard)
+route.get('/admin/studentDisplay',AdminController.display)
 route.get('/admin/addstudent',AdminController.display)
 route.get('/admin/adduser',AdminController.adduser)
-route.get('/admin/views/User/:id',AdminController.viewsUser)
-route.get('/admin/edit/User/:id',AdminController.EditUser)
+route.get('/admin/viewsUser/:id',AdminController.viewsUser)
+route.get('/admin/editUser/:id',AdminController.EditUser)
+route.post('/admin/UpdateUser/:id',AdminController.UpdateUser)
+route.get('/admin/deleteUser/:id',AdminController.deleteUser)
+
+
 
 
 
