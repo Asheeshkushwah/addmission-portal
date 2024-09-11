@@ -54,15 +54,15 @@ class FrontController {
     static userInsert = async (req, res) => {
         try {
             //bad me likhna hai
-            // console.log(req.body)
-            const {n,e,p,cp}=req.body
-            const result = new UserModel({
-                name:n,
-                email:e,
-                password:p
-            })
-            await result.save()
-            res.redirect('/')  //route ka url
+            console.log(req.files)
+            // const {n,e,p,cp}=req.body
+            // const result = new UserModel({
+            //     name:n,
+            //     email:e,
+            //     password:p
+            // })
+            // await result.save()
+            // res.redirect('/')  //route ka url
 
 
         } catch (error) {

@@ -25,6 +25,8 @@ route.get('/admin/viewsUser/:id',AdminController.viewsUser)
 route.get('/admin/editUser/:id',AdminController.EditUser)
 route.post('/admin/UpdateUser/:id',AdminController.UpdateUser)
 route.get('/admin/deleteUser/:id',AdminController.deleteUser)
+route.post('/admin/userInsert',AdminController.userInsert)
+
 
 
 

@@ -79,7 +79,21 @@ class AdminController {
         }
     }
 
+   static userInsert = async (req,res)=>{
+    try{
+        const {n,e,p,cp}=req.body
+        const result = new UserModel({
+            name:n,
+            email:e,
+            password:p
+        })
+        await result.save()
+        res.redirect('/admin/studentDisplay') 
 
+     } catch(error){
+        console.log(error)
+     }
+   };
 
 
 
