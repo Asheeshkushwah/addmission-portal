@@ -14,6 +14,20 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    Confirmpassword: {
+        type: String,
+        required: true,
+    },
+    image:{
+        public_id:{
+            type:String,
+            Required: true,
+        },
+        url:{
+            type:String,
+            Required:true,
+        }
+    },
     role: {
         type: String,
         default: 'user'

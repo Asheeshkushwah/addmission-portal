@@ -40,50 +40,68 @@
 
                         <!-- Heading (Register Here) -->
                         <h1 class="mb-5 text-center">Register Here</h1>
-
-                        <!-- User Name -->
-                        <div class="row mb-4">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">User
-                                Name</div>
-                            <div class="col-lg-10">
-                                <input name="n" class="form-control text-capitalize" type="text"
-                                    placeholder="Enter your name" required>
+                        <% if(message.length>0){ %>
+                            <div class="alert alert-success">
+                                <%=message%>
                             </div>
-                        </div>
+                            <% } %>
+                                <!-- User Name -->
+                                <div class="row mb-4">
+                                    <div
+                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                        User
+                                        Name</div>
+                                    <div class="col-lg-10">
+                                        <input name="n" class="form-control text-capitalize" type="text"
+                                            placeholder="Enter your name" required>
+                                    </div>
+                                </div>
 
-                        <!-- Email -->
-                        <div class="row mb-3">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">Email
-                            </div>
-                            <div class="col-lg-10">
-                                <input name="e" class="form-control" type="email" placeholder="name@example.com"
-                                    required>
-                            </div>
-                        </div>
+                                <!-- Email -->
+                                <div class="row mb-3">
+                                    <div
+                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                        Email
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <input name="e" class="form-control" type="email" placeholder="name@example.com"
+                                            required>
+                                    </div>
+                                </div>
 
-                        <!-- Password -->
-                        <div class="row mb-4">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                Password</div>
-                            <div class="col-lg-10">
-                                <input name="p" class="form-control" type="password" required>
-                            </div>
-                        </div>
+                                <!-- Password -->
+                                <div class="row mb-4">
+                                    <div
+                                        class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                        Password</div>
+                                    <div class="col-lg-10">
+                                        <input name="p" class="form-control" type="password" required>
+                                    </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div
+                                            class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                           confirm_Password</div>
+                                        <div class="col-lg-10">
+                                            <input name="cp" class="form-control" type="password" required>
+                                        </div>
+                                        </div>
 
-                        <!-- Confirm Password -->
+                                    <!-- Confirm Password -->
 
-                        <div class="row mb-4">
-                            <div class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
-                                profile Image</div>
-                            <div class="col-lg-10">
-                                <input name="image" class="form-control" type="file" required>
-                            </div>
-                        </div>
+                                    <div class="row mb-4">
+                                        <div
+                                            class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2">
+                                            profile Image</div>
+                                        <div class="col-lg-10">
+                                            <input name="image" class="form-control" type="file" required>
+                                        </div>
+                                    </div>
 
-                        <!-- Button (Login) -->
-                        <center>
-                            <button type="submit" class="btn btn-primary mb-5 btn-lg">Register</button>
-                        </center>
+                                    <!-- Button (Login) -->
+                                    <center>
+                                        <button type="submit" class="btn btn-primary mb-5 btn-lg">Register</button>
+                                    </center>
 
                     </form>
                 </div>

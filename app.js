@@ -20,6 +20,20 @@ app.use(fileupload({
 
 }));
 
+//connect flash and sessions
+ const session =require('express-session')
+ const flash = require('connect-flash')
+
+ //message
+ app.use(session({
+    secret:'secret',
+    cookie:{
+        maxAge:60000 },
+        resave:false,
+        saveUninitialized:false,
+ }))
+ // flash message
+ app.use(flash())
 ///connect db
 connectDb()
 
