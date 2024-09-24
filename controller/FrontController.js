@@ -1,7 +1,7 @@
 const UserModel = require("../moduls/user")
 const cloudinary = require('cloudinary').v2
 const bcrypt = require("bcrypt");
-
+const jwt = require('jsonwebtoken')
 
 // Configuration
 cloudinary.config({
@@ -121,19 +121,35 @@ class FrontController {
             const { email, password } = req.body;
             // console.log(req.body)
             const user = await UserModel.findOne({ email: email });
-            console.log(user)
+            // console.log(user)
             if (user != null) {
                 const isMatch = await bcrypt.compare(password, user.password);
                 if (isMatch) {
+                    // token create
+                    var token = jwt.sign({ ID: user._id}, 'ewryiyuuoiuigfgfh')
+                    // console.log(token)
+                    res.cookie('token',token)
+
                     res.redirect('/home')
-                }else{
-                    req.flash("error","Email or password is not valid");
+                } else {
+                    req.flash("error", "Email or password is not valid");
                     res.redirect('/home')
                 }
             } else {
                 req.flash("error", "you are not a registered user.");
                 res.redirect("/")
             }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    static logout = async (req, res) => {
+        try {
+            // res.send("contact page")
+            res.redirect('/')
+
         } catch (error) {
             console.log(error)
         }
