@@ -14,10 +14,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    Confirmpassword: {
-        type: String,
-        required: true,
-    },
+  
     image:{
         public_id:{
             type:String,

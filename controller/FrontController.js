@@ -1,5 +1,7 @@
 const UserModel = require("../moduls/user")
 const cloudinary = require('cloudinary').v2
+const bcrypt = require("bcrypt");
+
 
 // Configuration
 cloudinary.config({
@@ -30,19 +32,21 @@ class FrontController {
 
     static login = async (req, res) => {
         try {
-            //bad me likhna hai
-            res.render('login' ,{msg :req.flash("success")})
+            res.render("login", {
+                msg: req.flash("success"),
+                // message: req.flash("success"),
+                msg1: req.flash("error"),
 
+            });
         } catch (error) {
             console.log(error)
         }
     }
 
-
     static register = async (req, res) => {
         try {
             //bad me likhna hai
-            res.render('register',{message:req.flash('error')})
+            res.render('register', { message: req.flash('error') })
 
         } catch (error) {
             console.log(error)
@@ -73,6 +77,7 @@ class FrontController {
             } else {
                 if (n && e && p && cp) {
                     if (p == cp) {
+                        const hashPassword = await bcrypt.hash(p, 10);
                         const file = req.files.image
                         //console.log(file)
                         const imageUpload = await cloudinary.uploader.upload(file.tempFilePath, {
@@ -83,8 +88,7 @@ class FrontController {
                         const result = new UserModel({
                             name: n,
                             email: e,
-                            password: p,
-                            Confirmpassword: cp,
+                            password: hashPassword,
                             image: {
                                 public_id: imageUpload.public_id,
                                 url: imageUpload.secure_url
@@ -109,6 +113,31 @@ class FrontController {
         }
     }
 
+
+
+
+    static verifylogin = async (req, res) => {
+        try {
+            const { email, password } = req.body;
+            // console.log(req.body)
+            const user = await UserModel.findOne({ email: email });
+            console.log(user)
+            if (user != null) {
+                const isMatch = await bcrypt.compare(password, user.password);
+                if (isMatch) {
+                    res.redirect('/home')
+                }else{
+                    req.flash("error","Email or password is not valid");
+                    res.redirect('/home')
+                }
+            } else {
+                req.flash("error", "you are not a registered user.");
+                res.redirect("/")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 }
 module.exports = FrontController

@@ -28,6 +28,9 @@ route.get('/admin/deleteUser/:id',AdminController.deleteUser)
 route.post('/admin/userInsert',AdminController.userInsert)
 
 
+route.post('/verifylogin',FrontController.verifylogin)
+
+
 
 
 
