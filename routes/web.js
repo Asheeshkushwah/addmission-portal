@@ -7,10 +7,10 @@ const route = express.Router()
 
 
 route.get('/home',checkAuth, FrontController.home)
-route.get('/about',FrontController.about)
+route.get('/about',checkAuth,FrontController.about)
 route.get('/',FrontController.login)
 route.get('/register',FrontController.register)
-route.get('/contact',FrontController.contact)
+route.get('/contact',checkAuth,FrontController.contact)
 
 //insert Data
 route.post('/userInsert',FrontController.userInsert)

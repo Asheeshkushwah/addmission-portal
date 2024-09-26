@@ -12,8 +12,8 @@ cloudinary.config({
 class FrontController {
     static home = async (req, res) => {
         try {
-            //bad me likhna hai
-            res.render('home')
+            const {name,image} =req.userData;
+            res.render('home',{ n:name,i:image } )
 
         } catch (error) {
             console.log(error)
@@ -22,8 +22,8 @@ class FrontController {
 
     static about = async (req, res) => {
         try {
-            //bad me likhna hai
-            res.render('about')
+            const {name,image} =req.userData;
+            res.render('about',{ n:name,i:image})
 
         } catch (error) {
             console.log(error)
@@ -55,9 +55,8 @@ class FrontController {
 
     static contact = async (req, res) => {
         try {
-            //bad me likhna hai
-            res.render('contact')
-
+            const {name,image} =req.userData;
+            res.render('contact',{ n:name,i:image } )
         } catch (error) {
             console.log(error)
         }
@@ -148,6 +147,7 @@ class FrontController {
     static logout = async (req, res) => {
         try {
             // res.send("contact page")
+            res.clearcookies("token");  //clearcookies
             res.redirect('/')
 
         } catch (error) {

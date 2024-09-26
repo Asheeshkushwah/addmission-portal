@@ -4,6 +4,11 @@ const app = express()
 const port = 2000
 const web = require(('./routes/web'))
 const connectDb = require('./db/connectDb')
+//cookies parser
+const cookieparser =require('cookie-parser')
+app.use(cookieparser())
+
+
 const fileupload =require('express-fileupload');
 
 
