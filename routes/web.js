@@ -8,7 +8,9 @@ const route = express.Router()
 //course
 route.post('/courseInsert',checkAuth,courseController.courseInsert)
 route.get('/courseDisplay',checkAuth,courseController.courseDisplay)
-route.get('/courseView',checkAuth,courseController.courseView)
+route.get('/course/View/:id',checkAuth,courseController.courseView)
+route.get('/course/Edit/:id',checkAuth,courseController.courseEdit)
+route.post('/course/Update/:id',checkAuth,courseController.courseUpdate)
 
 
 route.get('/home',checkAuth, FrontController.home)

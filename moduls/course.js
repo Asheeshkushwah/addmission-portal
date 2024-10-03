@@ -24,7 +24,7 @@ const courseSchema  = new mongoose.Schema({
         type:String,
         Required:true
     },
-    Qualification:{
+    qualification:{
         type:String,
         Required:true
     },

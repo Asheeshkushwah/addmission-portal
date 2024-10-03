@@ -1,0 +1,70 @@
+<%-include('../layouts/header.ejs')%>
+<div class="content-wrapper" style="margin-bottom: 20px; margin-top: 20px">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Register Students
+            </h1>
+          </div><!-- /.col -->
+                </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content mt-5">
+      <div class="container-fluid">
+        <div class="card">
+          <!-- /.card-header -->
+          <div class="card-body">
+            <form action="/course/Update/<%=d._id%>"  method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    Name
+                    <input type="text" name="name" value="<%=d.name%>" placeholder="Enter name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    email
+                    <input type="email" placeholder="Email" value="<%=d.email%>" name="email" class="form-control">
+                </div>
+                <div class="mb-3">
+                        Phone
+                    <input type="number" placeholder="phone no." value="<%=d.phone%>" name="phone" class="form-control">
+                </div>
+                <div class="mb-3">
+                    D.O.B.
+                    <input type="date" placeholder=" Enter D.O.B." value="<%=d.dob%>" name="dob" class="form-control">
+                </div>
+                <div class="mb-3">
+                        Address
+                        <textarea name="address"  placeholder="Enter address" value="<%=d.address%>" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                        Gender <input type="radio" name="gender" class="mr-2" value="Male" readonly>Male <input type="radio" name="gender" value="Female" readonly>Female 
+                </div>
+                <div class="mb-5">
+                    Qualification
+                    <select name="qualification" value="<%=d.qualification%>" readonly class="form-control">
+                        <option value="Qualification">Qualification</option>
+                        <option value="12th in Mathematics" >12th in Mathematics</option>
+                    </select>
+                <div class="mb-5">
+                    Course
+                <input type="text" value="B.Tech." class="form-control" name="course" readonly>
+            </div>
+                <div class="mb-3">
+                    <button class="btn btn-info" type="submit">Sumbit</button>
+                </div>
+            </form>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<%-include('../layouts/footer.ejs')%>

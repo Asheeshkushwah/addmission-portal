@@ -33,8 +33,9 @@ static courseDisplay=async(req,res)=>{
 }
 static courseView =async(req,res)=>{
     try {
-        const {id,name,image} = req.userdata 
-        const data = await courseModel.find()
+        const id = req.params.id
+        const {name,image} = req.userdata 
+        const data = await courseModel.findById(id)
         // console.log(data)
         res.render("course/View",{d:data,n:name,i:image })
     } catch (error) {
@@ -45,11 +46,12 @@ static courseView =async(req,res)=>{
 
 static courseEdit=async(req,res)=>{
     try {
-        const {id,name,image} = req.userdata
+        const id = req.params.id
+        const {name,image} = req.userdata
         // console.log(id)
         const data = await courseModel.findById(id)
         // console.log(data)
-        res.render('/courseEdit', { d:data,n:name,i:image}            
+        res.render('course/Edit', { d:data,n:name,i:image}            
         )
     } catch (error) {
         console.log(error)
@@ -58,7 +60,11 @@ static courseEdit=async(req,res)=>{
 }
 static courseUpdate=async(req,res)=>{
     try {
-        
+        const id = req.params.id
+        const{name,image} = req.userdata
+        const data = await courseModel.findByIdAndUpdate(id)
+        // console.log(data)
+        res.render('course/Update',{d:data,n:name,i:image})
     } catch (error) {
         console.log(error)
    

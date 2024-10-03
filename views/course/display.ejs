@@ -22,23 +22,19 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>Id</th>
+                  <th>S.no</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
-                  <th>D.O.B.</th>
-                  <th>Address</th>
-                  <th>Gender</th>
                   <th>Course</th>
-                  <th>Qualification</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <% d.forEach((item)=>{%>
+                <% d.forEach((item,index)=>{%>
                   <tr>
                     <td>
-                      <%= item._id %>
+                      <%= index+1 %>
                     </td>
                     <td>
                       <%= item.name %>
@@ -49,22 +45,13 @@
                     <td>
                       <%= item.phone %>
                     </td>
-                    <td>
-                      <%= item.dob %>
-                    </td>
-                    <td>
-                      <%= item.address %>
-                    </td>
-                    <td>
-                      <%= item.gender %>
-                    </td>
+                   
                     <td>
                       <%= item.course %>
                     </td>
-                    <td> <%= item.qualification %></td>      
                     <td>
                       <a href="/course/View/<%=item._id%>" class="btn btn-info">View</a>
-                      <a href="" class="btn btn-success">Edit</a>
+                      <a href="/course/Edit/<%=item._id%>" class="btn btn-success">Edit</a>
                     </td>
                   </tr>
                   <% }) %>
@@ -72,15 +59,11 @@
               <tfoot>
                 <thead>
                   <tr>
-                    <th>Id</th>
+                    <th>S.no</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>D.O.B.</th>
-                    <th>Address</th>
-                    <th>Gender</th>
                     <th>Course</th>
-                    <th>Qualification</th>
                     <th>Action</th>
                   </tr>
                 </thead>
