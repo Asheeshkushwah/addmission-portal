@@ -12,8 +12,8 @@ cloudinary.config({
 class FrontController {
     static home = async (req, res) => {
         try {
-            const {name,image} =req.userData;
-            res.render('home',{ n:name,i:image } )
+            const {name,image,email} =req.userData;
+            res.render('home',{ n:name,i:image,e:email } )
 
         } catch (error) {
             console.log(error)

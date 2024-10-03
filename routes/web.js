@@ -2,8 +2,13 @@ const express = require("express")
 const FrontController = require("../controller/FrontController")
 const AdminController = require("../controller/admin/AdminController")
 const checkAuth = require("../middleware/checkauth")
+const courseController = require("../controller/coursecontroller")
 const route = express.Router()
 
+//course
+route.post('/courseInsert',checkAuth,courseController.courseInsert)
+route.get('/courseDisplay',checkAuth,courseController.courseDisplay)
+route.get('/courseView',checkAuth,courseController.courseView)
 
 
 route.get('/home',checkAuth, FrontController.home)

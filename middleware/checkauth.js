@@ -15,7 +15,7 @@ const checkAuth = async(req,res,next)=>{
         // console.log(verifyToken)
         const data = await UserModel.findOne({_id:verifyToken.ID})
         // console.log(data)
-        req.userData=data
+        req.userdata=data
         next();   //next method route per pahucha dega
     }
 }
