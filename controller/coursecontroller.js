@@ -24,7 +24,7 @@ class courseController {
     static courseDisplay = async (req, res) => {
         try {
             const { id, name, image } = req.userdata
-            const data = await courseModel.find()
+            const data = await courseModel.find({user_id:id})
             // console.log(data)
             res.render("course/Display", { d: data, n: name, i: image })
         } catch (error) {

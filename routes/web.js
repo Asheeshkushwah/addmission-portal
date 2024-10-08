@@ -23,6 +23,8 @@ route.get('/contact',checkAuth,FrontController.contact)
 route.post('/userInsert',FrontController.userInsert)
 route.get('/logout',FrontController.logout)
 
+//profile
+route.get('/profile',checkAuth,FrontController.profile)
 
 
 //admincontroller

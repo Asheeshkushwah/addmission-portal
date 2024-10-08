@@ -42,7 +42,7 @@ class AdminController {
             // console.log(id)
             const { name, image } = req.userdata
             const data = await UserModel.findById(id)
-            console.log(data)
+            // console.log(data)
             res.render('admin/viewsUser', { d: data, n: name, i: image });
         } catch (error) {
             console.log(error)

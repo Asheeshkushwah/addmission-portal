@@ -165,5 +165,19 @@ class FrontController {
         }
     }
 
+    //profile
+    static profile = async (req, res) => {
+        try {
+          const {name,image,email}= req.userdata
+          res.render("profile",{
+            n:name,
+            i:image,
+            e:email
+          })
+          
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 module.exports = FrontController
