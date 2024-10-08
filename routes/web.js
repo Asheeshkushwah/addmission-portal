@@ -26,19 +26,23 @@ route.get('/logout',FrontController.logout)
 
 
 //admincontroller
-route.get('/admin/dashboard',AdminController.dashboard)
-route.get('/admin/studentDisplay',AdminController.display)
-route.get('/admin/addstudent',AdminController.display)
-route.get('/admin/adduser',AdminController.adduser)
-route.get('/admin/viewsUser/:id',AdminController.viewsUser)
-route.get('/admin/editUser/:id',AdminController.EditUser)
-route.post('/admin/UpdateUser/:id',AdminController.UpdateUser)
-route.get('/admin/deleteUser/:id',AdminController.deleteUser)
-route.post('/admin/userInsert',AdminController.userInsert)
+route.get('/admin/dashboard',checkAuth,AdminController.dashboard)
+route.get('/admin/studentDisplay',checkAuth,AdminController.display)
+route.get('/admin/addstudent',checkAuth,AdminController.display)
+route.get('/admin/adduser',checkAuth,AdminController.adduser)
+route.get('/admin/viewsUser/:id',checkAuth,AdminController.viewsUser)
+route.get('/admin/editUser/:id',checkAuth,AdminController.EditUser)
+route.post('/admin/UpdateUser/:id',checkAuth,AdminController.UpdateUser)
+route.get('/admin/deleteUser/:id',checkAuth,AdminController.deleteUser)
+route.post('/admin/userInsert',checkAuth,AdminController.userInsert)
 
 
 route.post('/verifylogin',FrontController.verifylogin)
 
+//admincourse display
+
+route.get('/admin/coursedisplay',checkAuth,AdminController.coursedisplay)
+route.get('/admin/courseView',checkAuth,AdminController. courseView )
 
 
 

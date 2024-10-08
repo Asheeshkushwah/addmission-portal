@@ -124,12 +124,22 @@ class FrontController {
             if (user != null) {
                 const isMatch = await bcrypt.compare(password, user.password);
                 if (isMatch) {
+                    if(user.role == "admin"){
+                        var token = jwt.sign({ ID: user._id}, 'ewryiyuuoiuigfgfh')
+                        // console.log(token)
+                        res.cookie('token',token)
+    
+                        res.redirect('/admin/dashboard')
+                    }
+                    if(user.role == "user"){
+                        var token = jwt.sign({ ID: user._id}, 'ewryiyuuoiuigfgfh')
+                        // console.log(token)
+                        res.cookie('token',token)
+    
+                        res.redirect('/home')
+                    }
                     // token create
-                    var token = jwt.sign({ ID: user._id}, 'ewryiyuuoiuigfgfh')
-                    // console.log(token)
-                    res.cookie('token',token)
-
-                    res.redirect('/home')
+                   
                 } else {
                     req.flash("error", "Email or password is not valid");
                     res.redirect('/home')
@@ -147,7 +157,7 @@ class FrontController {
     static logout = async (req, res) => {
         try {
             // res.send("contact page")
-            res.clearcookies("token");  //clearcookies
+            res.clearCookie("token");  //clearcookies
             res.redirect('/')
 
         } catch (error) {

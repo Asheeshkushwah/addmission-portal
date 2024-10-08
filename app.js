@@ -1,5 +1,4 @@
 const express = require('express')
-const { connect } = require('mongoose')
 const app = express()
 const port = 2000
 const web = require(('./routes/web'))

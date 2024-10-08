@@ -1,15 +1,13 @@
 const mongoose = require('mongoose')
-const Local__Url ='mongodb://127.0.0.1:27017/ADDMISSIONPORTEL'
+const Local_Url = 'mongodb://127.0.0.1:27017/ADMISSION_PORTAL'
 
-const connectDb =()=>{
-    return mongoose.connect(Local__Url)
+const connectDb = () => {
+    return mongoose.connect(Local_Url)
     .then(()=>{
-        console.log("connect success")
+        console.log("Db connect hogya hai")
     }).catch((error)=>{
-        console.log(error)
-
+        console.log (error)
     })
 }
 
-
-module.exports =connectDb
+module.exports=connectDb;
