@@ -25,6 +25,10 @@ route.get('/logout',FrontController.logout)
 
 //profile
 route.get('/profile',checkAuth,FrontController.profile)
+route.post('/changePassword',checkAuth,FrontController.ChangePassword)
+route.post('/updateProfile',checkAuth,FrontController.updateProfile)
+
+
 
 
 //admincontroller

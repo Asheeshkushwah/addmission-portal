@@ -179,5 +179,86 @@ class FrontController {
             console.log(error)
         }
     }
+
+    static ChangePassword = async (req, res) => {
+        try {
+          const {id}= req.userdata;
+        //  console.log(req.body)
+          const {op,np,cp}=req.body;
+          if(op && np && cp){
+            const user = await UserModel.findById(id);
+            const isMatched =await bcrypt.compare(op,user.password);
+            // console.log(isMatched)
+            if(!isMatched){
+                req.flash("error","current password is incorrect");
+                res.redirect("/profile")
+            }else{
+                if (np != cp){
+                    req.flash("error","password does not match");
+                    res.redirect("/profile");
+                }else{
+                    const newHashPassword =await bcrypt.hash(np,10);
+                    await UserModel.findByIdAndUpdate(id ,{
+                        password:newHashPassword,
+                    });
+                    req.flash("success","password updated successfully");
+                    res.redirect("/")
+                }
+            }
+          }else{
+            req.flash("error" ,"all fields are required");
+            res.redirect("/profile");
+          }
+          
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    static updateProfile =async(req,res)=>{
+        try{
+            const {id} =req.userdata;
+            const {name,emial}=req.body;
+            if(req.files){
+                const user =await UserModel.findById(id);
+                const imageID =user.image.public_id;
+                console.log(imageID);
+
+                //deleting image for cloudnary
+                await cloudinary.uploader.destroy(imageID);
+                //new image update
+                const imagefile =req.files.image;
+                const imageUpload =await cloudinary.uploader.upload(
+                    imagefile.tempFilePath,
+                    {
+                        folder:"userprofile",
+                    }
+                );
+                var data ={
+                    name:name,
+                    email:emial,
+                    image:{
+                        public_id:imageUpload.public_id,
+                        url:imageUpload.secure_url,
+                    },
+                };
+            }else{
+                var data ={
+                    name:name,
+                    email:email,
+                };
+            }
+            await UserModel.findByIdAndUpdate(id,data);
+            req.flash("success","update profile successfully");
+            res.redirect("/profile")
+        }catch(error){
+            console.log(error);
+        }
+
+    } ;
+    
 }
+    
+
+
 module.exports = FrontController
