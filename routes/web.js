@@ -4,6 +4,7 @@ const AdminController = require("../controller/admin/AdminController")
 const checkAuth = require("../middleware/checkauth")
 const courseController = require("../controller/coursecontroller")
 const route = express.Router()
+const courseModel =require("../moduls/course")
 
 //course
 route.post('/courseInsert',checkAuth,courseController.courseInsert)

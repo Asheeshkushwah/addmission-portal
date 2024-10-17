@@ -93,7 +93,13 @@
                             <div class="card-body text-center">
                                 <h2>B.Tech</h2>
                                 <p class="card-text">B.Tech is a professional undergraduate engineering degree</p>
-                                <button type="button" class="btn btn-info" data-bs-target="#aa" data-bs-toggle="modal">Register</button>
+                                <% if(btech){ %>
+                                    <a href="/courseDisplay" class="btn btn-info" >Course display</a>
+                                
+                                    <%}else{%>
+                                        <button type="button" class="btn btn-info" data-bs-target="#btech" data-bs-toggle="modal" data-bs-target="#btech">Register</button>
+                                
+                                <%}%>
                             </div>
                         </div>
                     </div>
@@ -105,7 +111,14 @@
                             <div class="card-body text-center">
                                 <h2>BCA</h2>
                                 <p class="card-text">BCA is a three-year Bachelor's Degree in Computer Application</p>
-                                <button type="button" class="btn btn-info">Register</button>
+
+                                <% if(bca){ %>
+                                    <a href="/courseDisplay" class="btn btn-info" >Course display</a>
+                                
+                                    <%}else{%>
+                                        <button type="button" class="btn btn-info" data-bs-target="#bca" data-bs-toggle="modal">Register</button>
+                                
+                                <%}%>
                             </div>
                         </div>
                     </div>
@@ -118,7 +131,14 @@
                                 <h2>MCA</h2>
                                 <p class="card-text">MCA is a professional post-graduation degree in Computer
                                     Application</p>
-                                <button type="button" class="btn btn-info">Register</button>
+
+                                    <% if(mca){ %>
+                                        <a href="/courseDisplay" class="btn btn-info" >Course display</a>
+                                    
+                                        <%}else{%>
+                                            <button type="button" class="btn btn-info" data-bs-target="#mca" data-bs-toggle="modal">Register</button>
+                                    
+                                    <%}%>
                             </div>
                         </div>
                     </div>
@@ -129,8 +149,8 @@
     </section>
     <!-- End Courses -->
 
-    
-    <div class="modal fade" id="aa">
+    <!-- //btech model -->
+    <div class="modal fade" id="btech">
         <div class="modal-dialog"> <!--model xl,sm,lg-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -170,7 +190,7 @@
                             </select>
                         <div class="mb-5">
                             Course
-                        <input type="text" value="B.Tech." class="form-control" name="course" readonly>
+                        <input type="text" value="btech" class="form-control" name="course" readonly>
                     </div>
                         <div class="mb-3">
                             <button class="btn btn-info" type="submit">Sumbit</button>
@@ -181,6 +201,111 @@
         </div><!--modal-dialog end-->
     </div><!--modal end-->
 
+
+    <!-- //bca model -->
+    <div class="modal fade" id="bca">
+        <div class="modal-dialog"> <!--model xl,sm,lg-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-tittle"> Registration Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div><!--modal-header end-->
+                <div class="modal-body">
+                    <form action="/courseInsert" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            Name
+                            <input type="text" name="name" value="<%= n%>" placeholder="Enter name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            email
+                            <input type="email" placeholder="Email" value="<%= e%>" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                                Phone
+                            <input type="number" placeholder="phone no." name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            D.O.B.
+                            <input type="date" placeholder=" Enter D.O.B." name="dob" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                                Address
+                                <textarea name="address"  placeholder="Enter address" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                                Gender <input type="radio" name="gender" class="mr-2" value="Male" readonly>Male <input type="radio" name="gender" value="Female" readonly>Female 
+                        </div>
+                        <div class="mb-5">
+                            Qualification
+                            <select name="qualification" readonly class="form-control">
+                                <option value="Qualification">Qualification</option>
+                                <option value="12th in Mathematics" >12th in Mathematics</option>
+                            </select>
+                        <div class="mb-5">
+                            Course
+                        <input type="text" value="bca" class="form-control" name="course" readonly>
+                    </div>
+                        <div class="mb-3">
+                            <button class="btn btn-info" type="submit">Sumbit</button>
+                        </div>
+                    </form>
+                </div><!--modal-body end-->
+            </div><!--modal content end-->
+        </div><!--modal-dialog end-->
+    </div><!--modal end-->
+
+
+    <!-- //mca model -->
+    <div class="modal fade" id="mca">
+        <div class="modal-dialog"> <!--model xl,sm,lg-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-tittle"> Registration Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div><!--modal-header end-->
+                <div class="modal-body">
+                    <form action="/courseInsert" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            Name
+                            <input type="text" name="name" value="<%= n%>" placeholder="Enter name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            email
+                            <input type="email" placeholder="Email" value="<%= e%>" name="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                                Phone
+                            <input type="number" placeholder="phone no." name="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            D.O.B.
+                            <input type="date" placeholder=" Enter D.O.B." name="dob" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                                Address
+                                <textarea name="address"  placeholder="Enter address" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                                Gender <input type="radio" name="gender" class="mr-2" value="Male" readonly>Male <input type="radio" name="gender" value="Female" readonly>Female 
+                        </div>
+                        <div class="mb-5">
+                            Qualification
+                            <select name="qualification" readonly class="form-control">
+                                <option value="Qualification">Qualification</option>
+                                <option value="12th in Mathematics" >12th in Mathematics</option>
+                            </select>
+                        <div class="mb-5">
+                            Course
+                        <input type="text" value="mca" class="form-control" name="course" readonly>
+                    </div>
+                        <div class="mb-3">
+                            <button class="btn btn-info" type="submit">Sumbit</button>
+                        </div>
+                    </form>
+                </div><!--modal-body end-->
+            </div><!--modal content end-->
+        </div><!--modal-dialog end-->
+    </div><!--modal end-->
     <%-include('./layouts/footer.ejs')%>
 
 
