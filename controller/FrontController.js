@@ -2,6 +2,7 @@ const UserModel = require("../moduls/user")
 const cloudinary = require('cloudinary').v2
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const randomstring = require("randomstring");
 const courseModel = require("../moduls/course");
 
 // Configuration
@@ -262,7 +263,60 @@ class FrontController {
 
     } ;
     
+    static forgotpassword = async (req, res) => {
+        try {
+          const { email } = req.body;
+          const userData = await UserModel.findOne({ email: email });
+          //console.log(userData)
+          if (userData) {
+            //npm i randomstring
+            const randomString = randomstring.generate();
+            await UserModel.updateOne(
+              { email: email },
+              { $set: { token: randomString } }
+            );
+            this.sendEmail(userData.name, userData.email, randomString);
+            req.flash("success", "Plz Check Your mail to reset Your Password!");
+            res.redirect("/");
+          } else {
+            req.flash("error", "You are not a registered Email");
+            res.redirect("/");
+          }
+        } catch (error) {
+          console.log(error);
+    }
+    };
+
+    static sendEmail = async (name, email, token) => {
+        // console.log(name,email,status,comment)
+        // connenct with the smtp server
+    
+        let transporter = await nodemailer.createTransport({
+          host: "smtp.gmail.com",
+          port: 587,
+    
+          auth: {
+            user: "asheesh94065@gmail.com",
+            pass: "",
+          },
+        });
+        let info = await transporter.sendMail({
+          from: "test@gmail.com", // sender address
+          to: email, // list of receivers
+          subject: "Reset Password", // Subject line
+          text: "heelo", // plain text body
+          html:
+            "<p>Hii " +
+            name +
+            ',Please click here to <a href="http://localhost:3000/reset-password?token=' +
+            token +
+            '">Reset</a>Your Password.',
+    });
+    };
+    
+    
 }
+
     
 
 

@@ -110,7 +110,7 @@ let transporter = await nodemailer.createTransport({
     host:"smpt.gmail.com",
     port:587,
     auth:{
-        user:"chandrasinghkushwah44@gmail.com",
+        user:"asheesh94065@gmail.com",
         pass:""
     },
 });

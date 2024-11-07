@@ -46,6 +46,9 @@ route.post('/admin/userInsert',checkAuth,AdminController.userInsert)
 
 route.post('/verifylogin',FrontController.verifylogin)
 
+
+//forget password
+route.post('/forgot_password',FrontController.forgotpassword)
 //admincourse display
 
 route.get('/admin/coursedisplay',checkAuth,AdminController.coursedisplay)
