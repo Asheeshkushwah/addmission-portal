@@ -54,7 +54,7 @@ class AdminController {
             const { name, image } = req.userdata
             // console.log(id)
             const data = await UserModel.findById(id)
-            console.log(data)
+            // console.log(data)
             res.render('admin/EditUser', { d: data, n: name, i: image });
         } catch (error) {
             console.log(error)
@@ -132,6 +132,45 @@ class AdminController {
             console.log(error)
         }
     }
+    static statusupdate = async (req, res) => {
+        try {
+           const {name,email,status,comment} =req.body;
+           const id =req.params.id;
+           await courseModel .findByIdAndUpdate(id,{
+            status:status,
+            Comment:comment
+           });
+           //console.log(data)
+           res.redirect("admin/course/display")
+        } catch (errror) {
+            console.log(error)
+        }
+    }
+
+    static sendEmail = async(name,email,status,comment) =>{
+        console.log(name,email,course)
+       //connect with the smpt server
+
+let transporter = await nodemailer.createTransport({
+   host:"smpt.gmail.com",
+   port:587,
+   auth:{
+       user:"",
+       pass:""
+   },
+});
+let info = await transporter.sendMail({
+   from:"test@gmail.com",   //sender address
+   to:email,   //list of reciever
+   subject:`Course ${course}`,  //subject line
+   text:"hello",   //plain text body
+   html:`<b>${name}</b> course <b>${status}</b> successful! <br>
+   <b>Comment from admin</b> ${comment}`, //html body
+})
+
+   };
+
+
 
 }
 module.exports = AdminController

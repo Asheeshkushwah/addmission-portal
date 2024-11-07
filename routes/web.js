@@ -52,7 +52,8 @@ route.get('/admin/coursedisplay',checkAuth,AdminController.coursedisplay)
 route.get('/admin/courseView',checkAuth,AdminController. courseView )
 
 
-
+//status update
+route.post("/admin/statusupdate/id",AdminController.statusupdate)
 
 
 

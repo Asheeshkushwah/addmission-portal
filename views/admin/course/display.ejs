@@ -1,7 +1,7 @@
 <%-include('../layout/header.ejs')%>
 
- <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper" style="height: 200%; margin-top: 5%;">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="height: 200%; margin-top: 5%;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -38,6 +38,9 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
+                  <th>status</th>
+                  <th>Comment</th>
+                  <th></th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -56,7 +59,24 @@
                     <td>
                       <%= item.phone %>
                     </td>
-                    
+                    <td>
+                      <%= item.status %>
+                    </td>
+                    <td>
+                      <%= item.Comment %>
+                    </td>
+                    <form action="/admin/statusupdate/<%=item._id%>">
+                      <input type="text" name="name" value="<%=item.name%>"> />
+                      <input type="text">
+                      <input type="text" name="name" value="<%=item.email%>"> />
+                      <textarea name="Comment" class="form-control"></textarea>
+                      <button name="status" value="approved" class="btn btn-info">Approved</button>
+                      <button>
+                        name="status"
+                      </button>
+                    </form>
+
+
                     <td>
                       <a href="/course/view/<%=item._id%>" class="btn btn-info btn-sm ">View</a>
                       <a href="/course/edit/<%=item._id%>" class="btn btn-success btn-sm">Edit</a>
@@ -72,6 +92,8 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>status</th>
+                    <th>Comment</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -87,8 +109,8 @@
   </div>
   <!-- /.content-wrapper -->
 
-  
-  
 
 
-<%-include('../layout/footer.ejs')%>
+
+
+  <%-include('../layout/footer.ejs')%>
